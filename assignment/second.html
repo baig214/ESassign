@@ -1,0 +1,150 @@
+<html> 
+   <head>
+     <style>
+         #h1{
+             font-family: 'Times New Roman', Times, serif;
+             text-align: center;
+             color: indianred;
+
+         }
+
+     </style>
+   </head>
+   <body>
+       <h1 id="h1"> Form</h1>
+       <form action="index.html">
+       <table border="2" width="70%" align="center">
+           
+           <tr>
+               <td>Name</td>
+               <td><input type="text" id="nam"/></td>
+               
+           </tr>
+           <tr>
+            <td>Password</td>
+            <td><input type="text" id="pwd"/></td>
+            
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="text" id="cpwd"/></td>
+            
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input type="date" id="date"/></td>
+            
+        </tr>
+        <tr>
+            <td>Mobile No</td>
+            <td><input type="text" id="mob"/></td>
+            
+        </tr>  
+        <tr>
+            <td>Email Address</td>
+            <td><input type="text" id="email"/></td>
+            
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td><input type="text" id="url"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"> <input type="checkbox" required><b> I agreed the terms and conditions</b></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="Submit" onclick="return validate()"/></td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+            function validate()
+            {
+                var ndata=document.getElementById("nam").value;
+                var pdata=document.getElementById("pwd").value;
+                var cpdata=document.getElementById("cpwd").value;
+                var dpdata=document.getElementById("date").value;
+                var mdata=document.getElementById("mob").value;
+                var epdata=document.getElementById("email").value;
+                var udata=document.getElementById("url").value;
+
+                var nre=/^[a-zA-Z ]{3,}$/;
+                var pre=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/;
+                var dre=/^$/;
+                var mre=/^[6-9]\d{9}$/gi;
+                var ere=/^[a-z]\w+@[a-z]+\.[a-z]{2,3}$/;
+                var ure=/(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
+                if(ndata!=null && ndata.match(nre))
+                {
+                    if(pdata!=null && pdata.match(pre))
+                    {
+                        if(pdata===cpdata)
+                        {
+                            if(dpata!=null && dpata.match(dre))
+                            {
+                                if(mdata!=null && mdata.match(mre))
+                                {
+                                    if(edata!=null && edata.match(ere))
+                                    {
+                                        if (udata!=null && udata.match(ure))
+                                        {
+                                            alert("All controls are valid");
+                                             return true;
+                                        }
+                                        else
+                                        {
+                                            alert("enter the correct url");
+                                        return false;
+                                        }
+                                        
+                                   
+                                
+                        
+                                    }
+                                    
+                                    else
+                                    {
+                                        alert("email ID is incorrect");
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    alert("mobile number is incorrect");
+                                    return false;
+                                }
+                            }
+                            else
+                            {   var data = new Date();
+                                if(dpata>=data)
+                                {
+                                        alert("Choose the valid date");
+                                }
+                            }
+                            
+                        }
+                        else
+                        {
+                            alert("Password is not matching");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        alert("Password must contain atleast 1 Digit, 1 Uppercase, 1 Lowercase, 1 Special character and must be ranging from 8-20 Characters");
+                        return false;
+                    }
+                }
+                else
+                {
+                    alert("Name entered is incorrect");
+                    return false;
+                }
+
+            }
+       </script>
+       </body>
+       </html>
+      
